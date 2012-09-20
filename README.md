@@ -1,0 +1,4 @@
+AEPhoneGapBits
+==============
+
+AgelessEmail PhoneGap Bits
