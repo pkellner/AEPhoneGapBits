@@ -1,0 +1,1641 @@
+$base-gradient: 'matte';
+
+@import 'sencha-touch/default/all';
+
+@import 'app_images';
+
+@include
+sencha-panel
+
+;
+@include
+sencha-buttons
+
+;
+@include
+sencha-sheet
+
+;
+@include
+sencha-picker
+
+;
+@include
+sencha-tabs
+
+;
+@include
+sencha-toolbar
+
+;
+@include
+sencha-toolbar-forms
+
+;
+@include
+sencha-indexbar
+
+;
+@include
+sencha-list
+
+;
+@include
+sencha-list-paging
+
+;
+@include
+sencha-list-pullrefresh
+
+;
+@include
+sencha-layout
+
+;
+@include
+sencha-carousel
+
+;
+@include
+sencha-form
+
+;
+@include
+sencha-msgbox
+
+;
+@include
+sencha-loading-spinner
+
+;
+
+@include
+pictos-iconmask
+(
+'settings9'
+)
+;
+@include
+pictos-iconmask
+(
+'user3'
+)
+;
+@include
+pictos-iconmask
+(
+'info'
+)
+;
+@include
+pictos-iconmask
+(
+'arrow_up'
+)
+;
+@include
+pictos-iconmask
+(
+'arrow_down'
+)
+;
+
+
+@include
+pictos-iconmask
+(
+'user_add'
+)
+;
+
+@include
+pictos-iconmask
+(
+'favorites'
+)
+;
+
+@include
+pictos-iconmask
+(
+'user_multiple_add'
+)
+;
+
+@include
+pictos-iconmask
+(
+'user_fave'
+)
+;
+
+@include
+pictos-iconmask
+(
+'address_book'
+)
+;
+
+@include
+pictos-iconmask
+(
+'minus1'
+)
+;
+
+@include
+pictos-iconmask
+(
+'doc_send'
+)
+;
+
+@include
+pictos-iconmask
+(
+'doc_list'
+)
+;
+@include
+pictos-iconmask
+(
+'compose3'
+)
+;
+
+@include
+pictos-iconmask
+(
+'list'
+)
+;
+@include
+pictos-iconmask
+(
+'doc_new'
+)
+;
+
+@include
+pictos-iconmask
+(
+'mail4'
+)
+;
+
+.x-title .x-innerhtml, .contact .x-button-label, .details .emailReadStatus {
+  text-overflow: initial;
+}
+
+.preloadImg-ajax-preloader {
+  background: transparent url('images/ajax-loader.gif') no-repeat;
+}
+
+.x-mask {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.clearBoth {
+  clear: both;
+}
+
+.mainView {
+  background-color: #000;
+}
+
+.whiteText {
+  color: #fff;
+}
+
+.smallText {
+  font-size: 14px;
+}
+
+/* Start Page */
+
+.agelessEmail-inline {
+  background: $agelessEmailLogo;
+  width: 224px;
+  height: 36px;
+  display: inline-block;
+}
+
+.startHeaderWrapper, .startBottomWrapper {
+
+  background: transparent url('images/login/horizontal-separator.png') no-repeat center bottom;
+
+  .x-layout-card-item {
+    color: #fff;
+    background: none;
+  }
+
+  .nav {
+    margin-top: 196px;
+  }
+}
+
+.startBottomWrapper {
+    background: transparent url('images/login/horizontal-separator.png') no-repeat center bottom;
+}
+
+#leftStartHeaderBtn, #rightStartHeaderBtn {
+  background-color: transparent !important;
+  border:  none;
+  background-image: none !important;
+  padding-top: 2px;
+  .x-icon-mask {
+    width: 1.7em;
+    height: 1.7em;
+    -webkit-mask-size: 1.7em;
+  }
+  &.x-button-pressing {
+    top: 2px;
+    .x-button-icon {
+      background-image: -webkit-linear-gradient(bottom, #b03b1f, #b03b1f 2%, #FAE5E1);
+    }
+  }
+}
+
+#regWrapperPanel {
+  background: none;
+}
+
+#welcomeHeaderPanel, .registerHeaderPanel {
+  position: relative;
+  text-align: center;
+  font-size: 26px;
+  padding-bottom: 20px;
+
+  .x-innerhtml {
+    position: absolute;
+    bottom: 0;
+    width: 420px;
+    left: 50%;
+    margin-left: -210px;
+    .agelessEmail-inline {
+      margin-bottom: -9px;
+    }
+  }
+}
+
+#welcomeButtonsPanel {
+  .x-button-label {
+    font-size: 14px;
+  }
+}
+
+.registerHeaderPanel {
+  .x-innerhtml {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+
+  .x-layout-vbox {
+    .x-inner {
+      position: absolute;
+      bottom: 0;
+      width: 420px;
+      left: 50%;
+      margin-left: -210px;
+      font-size: 20px;
+      text-align: center;
+    }
+    .agelessEmail-inline {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+#startBodyCard {
+  margin-top: 20px;
+
+  .x-layout-card-item {
+    background: none;
+  }
+
+  .x-field .x-input-radio:checked::after, .x-field .x-input-checkbox:checked::after {
+    background-color: #f4401f;
+  }
+
+  #loginFormPanel {
+
+    #loginBtn {
+      margin-top: 5px;
+    }
+
+    .login2ndLine {
+      padding-left: 20px;
+      .x-field-checkbox {
+        background: none;
+        .x-input-checkbox {
+          width: 50px;
+        }
+      }
+      .x-innerhtml {
+        font-size: 16px;
+        padding-top: 13px;
+        color: #fff;
+      }
+
+      #forgotPasswordLink {
+          text-decoration: underline;
+      }
+    }
+
+  }
+
+  .x-field {
+    background-color: transparent;
+  }
+
+  .x-field-text, .x-field-number, .x-field-select {
+    .x-field-input {
+      border: solid 1px black;
+      box-shadow: inset 0 1px 5px #111;
+      border-radius: 6px;
+      border-style: none;
+      background-color: #fff;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #a5b8cb;
+    }
+
+    border: none;
+    margin-bottom: 4px;
+
+  }
+
+  .x-field.redBorder .x-field-input {
+    border: solid 1px red;
+    background-color: #fedbdb !important;
+  }
+
+  .x-form-fieldset-title {
+    margin: 2px 0 8px;
+    color: white;
+    text-shadow: black 0 1px 1px;
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .x-form-fieldset {
+    margin: 0;
+  }
+
+  .x-form-fieldset-inner {
+    background-color: transparent;
+    border: none;
+  }
+
+  .x-form-label {
+    background-color: transparent;
+    border: none;
+    span {
+      color: white;
+      font-size: 18px;
+      font-weight: normal;
+      text-shadow: black 0 1px 1px;
+    }
+  }
+
+  .regBodyCard2 {
+    #regMailAccountTypesList {
+      border-radius: 6px;
+      .x-list-inner {
+        padding: 3px;
+      }
+      .x-list-item-label {
+        min-height: 2.4em;
+      }
+    }
+  }
+
+  #regManualConfigFormPanel {
+    .x-scroll-container {
+      background: transparent;
+    }
+    .x-scroll-indicator {
+      background-color: #fff;
+    }
+  }
+
+  .regTestServerConnBtn {
+    margin-top: 14px;
+    font-size: 13px;
+    .x-button-label {
+      line-height: 22px;
+    }
+  }
+
+  .regPreConfigdAddBtn {
+    margin-top: 15px;
+    .x-button-label {
+      font-size: 18px;
+    }
+  }
+
+}
+
+#forgotPasswordPanel {
+  .x-layout-vbox {
+    padding: 10px;
+  }
+  .x-field-text, .x-field-number, .x-field-select {
+    .x-field-input {
+      border: solid 1px black;
+      box-shadow: inset 0 1px 5px #111;
+      border-radius: 6px;
+      border-style: none;
+      background-color: #fff;
+    }
+  }
+  input::-webkit-input-placeholder {
+    color: #337ec8;
+  }
+}
+
+/* End - Start Page */
+
+/*Contacts List*/
+
+/*Top Toolbar*/
+/*Account bar*/
+@include
+sencha-toolbar-ui
+(
+'blue'
+,
+#268cc3,
+
+'matte'
+)
+;
+/*Contacts bar*/
+@include
+sencha-toolbar-ui
+(
+'blue-dark-flat'
+,
+#083c6f,
+
+'flat'
+)
+;
+/*End - Top Toolbar*/
+
+/* Buttons*/
+@include sencha-button-ui('orange',#d04b2b,'matte');
+
+@include sencha-button-ui('orange-dark-bevel',#b03b1f,'bevel');
+
+@include sencha-button-ui('orange-dark-flat',#b05039,'flat');
+
+@include sencha-button-ui('blue', #268cc3, 'matte');
+
+@include sencha-button-ui('grey-flat', #cccccc, 'flat');
+
+@include sencha-button-ui('red',#C00,'matte');
+
+.small-btn {
+  font-size: 13px;
+  padding: 3px 6px;
+}
+
+.medium-btn {
+  font-size: 15px;
+  padding: 4px 7px;
+}
+
+/* Login Register */
+
+$regBoxShadow: 0 12px 10px -10px #000;
+
+.loginRegisterPanel {
+
+  .x-layout-card-item {
+    background: none;
+  }
+
+  /* Login */
+  #loginPanel {
+
+    .agelessEmailLogo {
+      font: {
+        size: 60px;
+        weight: bold;
+      }
+      text-shadow: #1A65CB 0px 1px 3px;
+      color: #e5efff;
+      .x-inner {
+        position: absolute;
+        top: 20%;
+      }
+      .x-innerhtml {
+        text-align: center;
+      }
+
+    }
+
+    .x-form-fieldset  {
+      margin-bottom: 0;
+
+      .x-form-fieldset-title {
+        color: #FFF;
+        text-shadow: #333 0px 1px 0px;
+      }
+
+      .x-form-fieldset-inner {
+        -webkit-border-bottom-left-radius: 0;
+        -webkit-border-bottom-right-radius: 0;
+      }
+
+      .x-field:last-child {
+        -webkit-border-bottom-left-radius: 0;
+        -webkit-border-bottom-right-radius: 0;
+      }
+
+    }
+    .x-toolbar + .x-toolbar {
+      border-bottom-left-radius: 7px;
+      border-bottom-right-radius: 7px;
+      -webkit-box-shadow: $regBoxShadow;
+
+      .x-innerhtml {
+        font-size: 14px;
+      }
+    }
+
+  }
+
+  #regCardsPanel {
+
+  }
+
+
+  .registerPanel {
+    .x-toolbar.x-docked-top, .x-layout-card > .x-layout-card-item {
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+    }
+
+    .x-toolbar.x-docked-bottom {
+      border-bottom-left-radius: 7px;
+      border-bottom-right-radius: 7px;
+
+      .x-innerhtml {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .x-inner.x-form-inner, .innerPadding .x-inner {
+    padding: 0 10px 20px ;
+  }
+
+  .x-form-fieldset + .x-button .x-button-label {
+    font-size: 13px;
+  }
+
+  background-color: #2784BD;
+
+  .fullBackground {
+    z-index: -99;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    background-color: #2784BD;
+  }
+
+  > div > div.x-layout-card-item {
+    background: none;
+  }
+
+}
+
+/* End - Login Register */
+
+.x-list.contactsList {
+/*Default*/
+  background: -webkit-linear-gradient(top, rgba(232, 234, 234, 1) 0%, rgba(232, 232, 232, 1) 100%);
+  border-radius: 6px;
+  border-right: 1px solid #333;
+  clear: both;
+
+  #accountToolbar, #accountToolbar2 {
+    height: 56px;
+  }
+
+  .accountToolbarRound {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+
+  .x-list-container {
+    white-space: normal;
+  }
+
+/*Empty*/
+  .x-list-emptytext {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .x-list-item {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #999999;
+
+    width: 100%;
+
+    .newEmailBtnContainer {
+      top: 2px;
+      clear: right;
+      .x-button {
+        padding: 1px 8px;
+        .x-button-label {
+          font-size: 13px;
+          font-weight: normal;
+          padding-left: 2px;
+          text-shadow: #333 0px 1px 0px;
+        }
+      }
+    }
+
+  /*Selected*/
+    &.x-item-selected {
+
+      border-top-color: #acaaa9;
+      border-bottom-color: #a6a495;
+
+      .x-list-item-label {
+
+        text-shadow: #fff 0px -1px 0px;
+
+        background: {
+          image: -webkit-linear-gradient(top, rgba(206, 205, 200, 1) 0%, rgba(226, 226, 183, 0.99) 1%, rgba(239, 239, 155, 0) 100%);
+          color: #e2dec0;
+        }
+
+        .name {
+          color: #9f0226;
+        }
+        .emailInfo {
+          color: #000;
+        }
+
+        .avatar {
+          border-color: #9f0226;
+        }
+      }
+
+      .x-toolbar {
+        background: none;
+        padding: 0;
+        height: 100%;
+
+        .x-button-orange-dark-flat {
+
+        }
+
+      }
+    }
+  }
+  .x-list .x-list-item:last-child {
+    border-bottom: 1px solid #999999;
+  }
+
+  .x-list-item-label {
+    padding: 5px;
+  }
+
+  .x-list-item {
+    .hasNewEmail {
+      .x-list-item-label {
+        border: 2px solid #C00;
+        margin: 2px;
+
+        .emailInfo {
+          width: 102px;
+        }
+
+      }
+    }
+
+    .whiteListIcon {
+      width: 26px;
+      height: 26px;
+      background: url('images/contact/user_fave.png') left top no-repeat;
+      background-size: 26px 26px;
+      float: left;
+      margin-right: 3px;
+    }
+
+    .name {
+      margin: 0 4px 4px 4px;
+      word-wrap: break-word;
+      font: {
+        size: 22px;
+        weight: bold;
+      }
+    }
+    .avatar {
+      float: left;
+      width: 86px;
+      height: 86px;
+      margin: 0 3px 6px 3px;
+      border: 1px solid #a3a3a3;
+      background-color: white;
+      text-align: center;
+      img {
+        vertical-align: middle;
+        width: 84px;
+        padding: 2px;
+      }
+    }
+    .info {
+      display: block;
+      font: {
+        size: 14px;
+      }
+      float: left;
+      width: 120px;
+      color: #111;
+      .weather {
+        width: 46px;
+        height: 46px;
+        float: left;
+        margin-right: 4px;
+        &.blank {
+          background: -webkit-linear-gradient(-45deg, rgba(112,112,112,0.52) 0%,rgba(0,0,0,0) 100%);
+        }
+      }
+      img {
+        width: 46px;
+        float: left;
+        padding: 2px;
+      }
+    }
+
+    .emailInfo {
+      float: right;
+      width: 115px;
+      border-left: 1px solid #a9a9a9;
+      padding-left: 6px;
+      font: {
+        size: 18px;
+        weight: bold;
+      }
+
+      .unread {
+        color: #cc0000;
+      }
+    }
+  }
+
+  .contactControlToolbar {
+    text-overflow: initial;
+    .x-button-icon {
+      display: block;
+    }
+    .x-button {
+      padding: 5px;
+      text-overflow: initial;
+    }
+    .x-button-label {
+      font-size: 12px;
+      font-weight: normal;
+      padding-left: 2px;
+      text-shadow: #333 0px 1px 0px;
+    }
+  }
+
+  .loggedInUserInfoToolbar {
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    .x-title {
+      text-align: left;
+      line-height: 16px;
+      word-wrap: break-word;
+      height: 80px;
+      font: {
+        size: 14px;
+        weight: normal;
+      }
+      .x-innerhtml {
+        text-overflow: ellipsis;
+        padding: 6px 0 3px;
+      }
+    }
+
+    .redBorderNewEmailIcon {
+      width: 21px;
+      height: 15px;
+      float: left;
+      background: transparent url('images/email/red-border-new-email.png') no-repeat 0 2px;
+    }
+
+  }
+
+  &.hideNewEmailCount {
+    .numberNewEmails {
+      display: none;
+    }
+  }
+
+}
+
+/*End - Contacts List    */
+
+/*Start - Whitelist Manage Panel*/
+
+#whitelistManagePanel {
+  .x-form-fieldset-title {
+    margin: 4px 6px;
+    font-size: 16px;
+  }
+  .x-field.redBorder .x-field-input {
+    border: solid 1px red;
+    background-color: #fedbdb !important;
+  }
+  .smallText {
+    line-height: 15px;
+    color: #222;
+    padding: 6px 4px;
+  }
+}
+
+#whitelistMultipleManagePanel,  #whitelistFirstLoginPanel {
+  .x-list-item {
+    .checkbox {
+      float: right;
+      width: 31px;
+      height: 30px;
+      background: transparent url('images/list-check.png') left top no-repeat;
+      background-size: auto 24px;
+    }
+
+    .checkbox.true {
+      background-position: -31px 0;
+    }
+    .checkbox.false {
+      background-position: 0 0;
+    }
+  }
+}
+
+#whitelistFirstLoginPanel {
+  #whitelistFirstLoginToolbar {
+    background: none;
+    border: none;
+    .regPreConfigdAddBtn {
+      margin-top: 0px;
+    }
+  }
+
+  #whitelistFirstLoginContactsList {
+    border-radius: 6px;
+
+  }
+
+  .x-list-item {
+    &.x-item-selected {
+      .checkbox {
+        background-position: -31px 0;
+      }
+    }
+
+    .checkbox {
+      background-position: 0 0;
+    }
+
+    .x-list-item-label {
+      background: none;
+      border-top-color: #DEDEDE;
+      color: #000;
+      text-shadow: none;
+    }
+
+    &.x-item-selected:last-child .x-list-item-label {
+      border-bottom-color: #DEDEDE;
+    }
+
+    &.x-item-pressed {
+      .x-list-item-label {
+        background-color: #91ccea;
+      }
+    }
+  }
+
+}
+
+/*End - Whitelist Manage Panel*/
+
+/* Update Contact */
+
+#updateContactPanel {
+  .x-form-fieldset {
+    margin-bottom: 10px;
+  }
+  .textNotes {
+    font-size: 13px;
+  }
+}
+
+/* End - Update Contact */
+
+#leftCarouselArrow {
+  display: block;
+}
+
+#rightCarouselArrow {
+  display: block;
+}
+
+#emailsContainerPanel {
+  display: -webkit-box;
+}
+
+/* Fonts */
+
+$standard-font-face: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+
+/*Emails*/
+$emailFont: Georgia;
+
+.x-panel.emailArrow {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  background: transparent url('images/nav-affordances.png') no-repeat;
+  opacity: 1;
+  &.left.tapped {
+    opacity: 0.5;
+  }
+  &.right {
+    background-position: -100px 0;
+    &.tapped {
+      opacity: 0.5;
+    }
+  }
+  .x-panel-inner {
+    background: none;
+  }
+}
+
+#contactsListContainerPanel + .x-body {
+  background: -webkit-linear-gradient(top, rgba(0,97,183,1) 0%,rgba(21,112,181,1) 100%);
+  border-radius: 6px;
+}
+
+#emailsContainerPanel {
+
+  background: none;
+
+  .x-body > .x-inner {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    -webkit-box-pack: center;
+    overflow: hidden;
+
+    > .x-innerhtml {
+      display: -webkit-box;
+
+      > #hasMessageOnEmailContainerPanel {
+        -webkit-box-flex: 1;
+        min-width: 100%;
+        min-height: 100%;
+        position: relative;
+        display: block;
+        padding: 0 50px;
+        color: white;
+        text-shadow: black 0 1px 1px;
+        font-weight: bold;
+        font-size: 20px;
+
+      }
+    }
+  }
+
+
+  .x-carousel {
+    background-color: transparent;
+  }
+
+  .x-carousel-item {
+    background-color: #FFF;
+
+    border: 1px solid #000;
+
+  }
+
+  /* Infinite Carousel */
+  #infiniteCarousel {
+    .x-carousel-item {
+      >.x-container {
+        padding: 25px 25px 10px;
+      }
+    }
+  }
+
+  .emailPanel {
+
+    .header {
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 8px;
+    }
+    .subject {
+      color: #cc0000;
+      font: {
+        family: $emailFont;
+        weight: bold;
+        size: 26px;
+      }
+    }
+    .emailReadStatus {
+      float: right;
+      width: 30px;
+      height: 30px;
+      &.read, &.unread {
+        background: transparent url('images/email/mail-open.png') left top no-repeat;
+        -webkit-background-size: 26px 26px, auto;
+        background-size: 26px 26px, auto;
+      }
+      &.unread {
+        background-image: url('images/email/mail.png');
+      }
+      &.blank {
+        background-image: none;
+      }
+
+
+    }
+
+
+    .body {
+      padding: 10px 0;
+      word-break: break-all;
+      word-wrap: break-word;
+      font: {
+        family: $emailFont;
+        weight: regular;
+        size: 20px;
+      }
+
+      .loader {
+        text-align: center;
+        padding-top: 100px;
+        color: #555;
+        font: {
+          size: 17px;
+          family: $standard-font-face;
+        }
+
+        div {
+          margin: auto;
+          width: 55px;
+          height: 55px;
+          background: transparent url('images/ajax-loader.gif') center top no-repeat;
+        }
+      }
+    }
+  }
+
+  /* hiding email viewed marker */
+  &.hideEmailViewedMarker {
+    .emailReadStatus {
+      &.read, &.unread {
+        background: none;
+      }
+    }
+  }
+
+  .imagesThumbContainer {
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
+    border-top: 1px dashed #aaa;
+    margin-top: 3px;
+    .imagesThumb {
+      border: 1px solid #FFF;
+      margin: 3px;
+      box-shadow: 0 2px 3px #999;
+      background-position: center center;
+      &.tapped {
+        margin-top: 4px;
+        margin-bottom: 2px;
+        box-shadow: 0 1px 1px #999;
+      }
+    }
+  }
+
+  .emailActionsToolbar {
+    padding-top: 8px;
+    background: none;
+    border-top: 1px dashed #ccc;
+  }
+
+/*controls for carousel with bottom toolbar*/
+  #emailCarouselBottomToolbar {
+    border: none;
+    background: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .emailsCarouselBottomControls {
+
+    padding-bottom: 45px !important;
+
+    .x-carousel-indicator {
+      margin-bottom: -37px;
+      padding: 0 115px 0;
+      span {
+        background-color: rgba(216, 64, 14, 0.4);
+      }
+      .x-carousel-indicator-active {
+        background-color: #d86039;
+      }
+    }
+  }
+}
+
+/*Native Emails Carousel*/
+.native {
+  .emailActionsToolbar {
+    margin-bottom: 14px;
+  }
+}
+
+/*End - Emails*/
+
+/*Settings*/
+
+/*End Settings*/
+
+/* Reply */
+#replyPanel {
+  width: 70%;
+  height: 70%;
+
+  #replyPanelTopToolbar + .x-body {
+    padding: 10px;
+    background-color: #eeeeee;
+  }
+
+  .quickMessageTitle {
+    font-weight: bold;
+  }
+
+  .quickMessageList {
+    border: 1px solid #aaa;
+    .x-list-item {
+      background: -webkit-linear-gradient(top, #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);
+      font-family: Georgia;
+      .x-toolbar {
+        background: none;
+      }
+      .msgBtnContainer {
+        float: right;
+        width: 105px;
+      }
+      .x-list-item-label {
+        padding: 3px;
+        .msgTpl {
+          padding: 7px 10px;
+        }
+      }
+    }
+  }
+
+  .formContainer {
+    background-color: #eeeeee;
+  }
+  .replyInfoContainer {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    width: 100%;
+    .personImage {
+      -webkit-box-flex: 100px;
+      padding: 0px 8px;
+      margin: 2px 4px;
+    }
+    .labelName {
+      -webkit-box-flex: 1.0;
+      padding-right: 10px;
+      height: 70px;
+      overflow: hidden;
+      .label {
+        font-size: 16px;
+        width: 70px;
+        display: inline-block;
+      }
+      .name, .subject {
+        font-size: 18px;
+        font-weight: bold;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  #recipientPanel {
+    margin-bottom: 10px;
+  }
+  #replyFormPanel textarea {
+    border: 1px solid #aaa;
+  }
+}
+
+
+/* End Reply */
+
+/*Image Browser*/
+#imageBrowserPanel {
+  width: 70%;
+  height: 70%;
+
+  .x-panel.imgArrow {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 40px 25px 50px 0px;
+    background: transparent url('images/email/affordances-bg.png') left top no-repeat;
+    .x-panel-inner {
+      width: 45px;
+      height: 60px;
+      background: transparent url('images/email/email-affordances.png') left top no-repeat;
+    }
+    &.left {
+      background-position: -83px 0px;
+    }
+    &.left.tapped {
+      background-position: 0 -69px;
+    }
+    &.right {
+      background-position: -50px 0;
+      &.tapped {
+
+      }
+      .x-panel-inner {
+        background-position: -50px -69px;
+      }
+    }
+
+  }
+
+  .x-img {
+    background: {
+      position: center;
+    }
+  }
+
+  .x-carousel-indicator {
+    margin-bottom: -40px;
+    height: 40px;
+    padding: 0 150px 0;
+    overflow: hidden;
+    background-color: #268cc3;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #97ceeb), color-stop(2%, #359fd8), color-stop(100%, #2077a5));
+    background-image: -webkit-linear-gradient(#97ceeb, #359fd8 2%, #2077a5);
+    background-image: linear-gradient(#97ceeb, #359fd8 2%, #2077a5);
+    border-top: solid 1px black;
+    span {
+      background-color: rgba(216, 64, 14, 0.4);
+    }
+    .x-carousel-indicator-active {
+      background-color: #d86039;
+    }
+  }
+
+  #emailImageCarouselBottomToolbar {
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+  }
+}
+
+/*End - Image Browser*/
+
+/* Assign image */
+
+.contactAssignImagePanel {
+  .imagesThumb {
+    border: 1px solid #fff;
+    padding: 2px;
+    margin: 7px;
+    box-shadow: 0 1px 2px #999;
+    background-position: center center;
+    float: left;
+    &.tapped {
+      box-shadow: 0 1px 2px #444;
+      margin: 3px;
+      border: 2px solid #cc1900;
+    }
+  }
+}
+
+/* End - Assign image */
+
+/* Advanced Email Settings */
+
+#emailSettingsPanel {
+  .mailAccountType {
+    padding: 8px 0 0 16px;
+    #mailAccountTypeText {
+      fotn-weight: normal;
+      font-size: 20px;
+      color: #000;
+      margin: 10px 0 0 20px;
+      display: block;
+    }
+  }
+  .x-form-fieldset-title {
+    margin-top: 0px;
+  }
+
+  .x-form-fieldset {
+    .x-body {
+      background: none;
+    }
+  }
+
+  .x-field {
+    background-color: transparent;
+  }
+
+  .x-field-text, .x-field-number, .x-field-select {
+
+    .x-field-input {
+      border: solid 1px black;
+      box-shadow: inset 0 1px 3px #555;
+      border-radius: 6px;
+      border-style: none;
+      height: 41px;
+      background-color: #fff;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #a5b8cb;
+    }
+
+    border: none;
+  }
+
+  .x-field.redBorder .x-field-input {
+    border: solid 1px red;
+    background-color: #fedbdb !important;
+  }
+
+  .x-form-fieldset-title {
+    margin: 2px 0 8px;
+    font-size: 16px;
+  }
+
+  .x-form-fieldset {
+    margin: 0;
+    .x-field {
+      border: none;
+    }
+  }
+
+  .x-form-fieldset-inner {
+    background-color: transparent;
+    border: none;
+  }
+
+  .x-form-label {
+    background-color: transparent;
+    border: none;
+  }
+
+  #emailSettingsTestMailConnectionBtn, #emailSettingsTestMailConnectionBtn2 {
+    margin-top: 14px;
+  }
+
+}
+
+/* End - Advanced Email Settings */
+
+/* Form */
+
+.redLabel {
+  color: red;
+}
+
+/*End - Form*/
+
+@media screen and (orientation:portrait) {
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .x-list.contactsList {
+
+    border-bottom: 1px solid #000;
+
+    #accountToolbar, #accountToolbar2, .loggedInUserInfoToolbar {
+      width: 209px;
+    }
+
+    .x-list-item {
+
+      &:last-child {
+        border-right: 1px solid #999999;
+      }
+
+    }
+
+    .x-list-item {
+      width: 210px;
+
+      .emailInfo {
+        float: left;
+        border: none;
+        font-size: 16px;
+      }
+
+      .info {
+        display: none;
+      }
+
+      .name {
+        font-size: 18px;
+      }
+
+      .avatar {
+        display: block;
+        width: 78px;
+        height: 78px;
+        img {
+          vertical-align: middle;
+          width: 72px;
+        }
+      }
+
+    }
+
+    &.x-item-selected {
+      width: 210px;
+    }
+
+
+  }
+
+  .contactControlToolbar {
+    width: 199px;
+    > div.x-toolbar-inner {
+      display: block;
+      -webkit-box-align: top;
+      -webkit-box-flex: 1;
+      -webkit-box-orient: vertical;
+      > div.x-button {
+        margin-bottom: 4px;
+        //display: block;
+      }
+      .assignPictureContactControl {
+        margin-top: 5px;
+      }
+    }
+    .x-button-icon {
+      display: none;
+    }
+  }
+
+  .hasNewEmail {
+    .contactControlToolbar {
+      width: 188px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .x-list.contactsList {
+
+    border-bottom: 1px solid #000;
+
+    width: 170px;
+
+    #accountToolbar, #accountToolbar2, #contactsListBottomToolbar, .loggedInUserInfoToolbar {
+      width: 169px;
+    }
+
+    .x-button-normal, .x-button-red {
+      padding: 5px 7px;
+    }
+
+    .x-list-item {
+
+      width: 170px;
+
+      .emailInfo {
+        font-size: 16px;
+        width: 90px;
+        padding-left: 4px;
+      }
+
+      .hasNewEmail {
+        .x-list-item-label {
+
+          .emailInfo {
+            width: 82px;
+          }
+
+        }
+      }
+
+      .info {
+        display: none;
+      }
+
+
+      .name {
+        font-size: 16px;
+      }
+
+      .avatar {
+        display: block;
+        width: 60px;
+        height: 60px;
+        img {
+          vertical-align: middle;
+          width: 56px;
+        }
+      }
+      .emailInfo {
+        font-size: 14px;
+      }
+
+    }
+
+  }
+
+  .contactControlToolbar {
+    width: 156px;
+    > div.x-toolbar-inner {
+      display: block;
+      -webkit-box-align: top;
+      -webkit-box-flex: 1;
+      -webkit-box-orient: vertical;
+      > div.x-button {
+        margin-bottom: 4px;
+        //display: block;
+      }
+      .assignPictureContactControl {
+        margin-top: 5px;
+      }
+    }
+    .x-button-icon {
+      display: none;
+    }
+  }
+
+  .hasNewEmail {
+    .contactControlToolbar {
+      width: 148px;
+    }
+  }
+
+}
+
+@media screen and (orientation:portrait) and (max-width: 500px) {
+  .x-list.contactsList {
+
+    .x-list-item {
+      width: 200px;
+    }
+
+    .avatar {
+      display: none;
+    }
+
+    .contactControlToolbar {
+      .x-button-icon {
+        display: none;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #leftCarouselArrow {
+    display: none;
+  }
+
+  #rightCarouselArrow {
+    display: none;
+  }
+
+  #emailsContainerPanel {
+    display: none;
+  }
+}
+
+/*Elluis*/

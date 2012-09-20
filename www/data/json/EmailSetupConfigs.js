@@ -1,0 +1,50 @@
+{
+    "Data": [{
+        "accountType": "Gmail",
+        "serverType": "IMAP",
+        "serverNameIn": "imap.gmail.com",
+        "serverNameOut": "smtp.gmail.com",
+        "serverPort": "993",
+        "useSSL": "true",
+        "serverPortOut": "587",
+        "useSSLOut": "true"
+    }, {
+        "accountType": "Yahoo! Mail",
+        "serverType": "IMAP",
+        "serverNameIn": "imap.mail.yahoo.com",
+        "serverNameOut": "smtp.mail.yahoo.com",
+        "serverPort": "993",
+        "useSSL": "true",
+        "serverPortOut": "465",
+        "useSSLOut": "true"
+    }, {
+        "accountType": "MobileMe",
+        "serverType": "IMAP",
+        "serverNameIn": "mail.me.com",
+        "serverNameOut": "smtp.me.com",
+        "serverPort": "993",
+        "useSSL": "true",
+        "serverPortOut": "587",
+        "useSSLOut": "true"
+    }, {
+        "accountType": "iCloud",
+        "serverType": "IMAP",
+        "serverNameIn": "imap.mail.me.com",
+        "serverNameOut": "smtp.mail.me.com",
+        "serverPort": "993",
+        "useSSL": "true",
+        "serverPortOut": "587",
+        "useSSLOut": "true"
+    }, {
+        "accountType": "AOL",
+        "serverType": "IMAP",
+        "serverNameIn": "imap.aol.com",
+        "serverNameOut": "smtp.aol.com",
+        "serverPort": "993",
+        "useSSL": "true",
+        "serverPortOut": "587",
+        "useSSLOut": "true"
+    }, {
+        "accountType": "Other"
+    }]
+}
