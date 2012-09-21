@@ -41310,7 +41310,14 @@ Ext.define('AE.controller.LoginRegister', {
             },
 
             loginUsername: {
-                keyup: 'onKeyupUsername'
+                keyup: 'onKeyupUsername',
+                focus: 'onFocusLoginUsername',
+                blur: 'onBlurLoginUsername'
+            },
+
+            loginPassword: {
+                focus: 'onFocusLoginPassword',
+                blur: 'onBlurLoginPassword'
             },
 
             // Register DataList
@@ -41473,6 +41480,22 @@ Ext.define('AE.controller.LoginRegister', {
         var fieldVal = field.getValue();
 
         field.setValue(fieldVal.replace(/[^a-zA-Z0-9]/gi,''));
+    },
+
+    onFocusLoginUsername: function () {
+        AE.logger('Login field FOCUS. LoginRegister.js:onFocusLoginUsername', 2);
+    },
+
+    onBlurLoginUsername: function () {
+        AE.logger('Login field BLUR. LoginRegister.js:onBlurLoginUsername', 2);
+    },
+
+    onFocusLoginPassword: function () {
+        AE.logger('Password field FOCUS. LoginRegister.js:onFocusLoginPassword', 2);
+    },
+
+    onBlurLoginPassword: function () {
+        AE.logger('Password field BLUR. LoginRegister.js:onBlurLoginPassword', 2);
     },
 
     // Form on creating Ageless Email Account

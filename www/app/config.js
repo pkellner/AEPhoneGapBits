@@ -6,7 +6,7 @@ AE.config = {
 
     logger: {
         enable: true,
-        minLogLevel: 4,
+        minLogLevel: 0,
         level: {
             0: 'Trace',
             1: 'Debug',
@@ -17,7 +17,7 @@ AE.config = {
     },
 
     // The base url for all ajax calls
-    baseUrl: 'http://app.agelessemail.com/',
+    baseUrl: '',
 
     HideCreateAccountBtn: {
         admin: false,
