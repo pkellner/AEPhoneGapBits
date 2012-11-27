@@ -29,7 +29,7 @@ Ext.define('AE.view.ContactsList', {
             '{FirstName} {LastName}' +
             '</tpl>' +
             '</div>' +
-            '<div class="avatar"><img id="contactImg_{PersonId}" src="/{PersonImageUrlUrlPrefix}/{PersonImageUrlImageName}?width=84&height=84&scale=both" alt="{FirstName} {LastName}" /></div>' +
+            '<div class="avatar"><img id="contactImg_{PersonId}" src="'+ AE.config.baseUrl +'/{PersonImageUrlUrlPrefix}/{PersonImageUrlImageName}?width=84&height=84&scale=both" alt="{FirstName} {LastName}" /></div>' +
 
             '<div class="user">' +
 

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23b90939-b515-4a82-9c12-d20605c4a6a9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/controller/Contacts.js" afterPath="$PROJECT_DIR$/www/app/controller/Contacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/controller/Emails.js" afterPath="$PROJECT_DIR$/www/app/controller/Emails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/controller/LoginRegister.js" afterPath="$PROJECT_DIR$/www/app/controller/LoginRegister.js" />
-    </list>
+    <list default="true" id="23b90939-b515-4a82-9c12-d20605c4a6a9" name="Default" comment="" />
     <ignored path="AEPhoneGapBits.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,7 +70,7 @@
       <file leaf-file-name="Emails.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/controller/Emails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2293" column="20" selection-start="80692" selection-end="80717" vertical-scroll-proportion="0.30409357">
+            <state line="2294" column="20" selection-start="80713" selection-end="80738" vertical-scroll-proportion="0.30409357">
               <folding />
             </state>
           </provider>
@@ -83,8 +79,13 @@
       <file leaf-file-name="Contacts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/controller/Contacts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1162" column="51" selection-start="40315" selection-end="40315" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="1170" column="51" selection-start="40476" selection-end="40476" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1354035358394" expanded="true" signature="42683:43829" placeholder="{...}" />
+                <marker date="1354035358394" expanded="true" signature="42823:43741" placeholder="{&quot;out&quot;: true...}" />
+                <marker date="1354035358394" expanded="true" signature="42948:43715" placeholder="{...}" />
+                <marker date="1354035358394" expanded="true" signature="43206:43312" placeholder="{&quot;out&quot;: false...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,8 +93,12 @@
       <file leaf-file-name="LoginRegister.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/controller/LoginRegister.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="715" column="42" selection-start="22374" selection-end="22374" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="770" column="42" selection-start="24183" selection-end="24183" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1354035348473" expanded="true" signature="26451:27287" placeholder="{&quot;method&quot;: 'POST'...}" />
+                <marker date="1354035348473" expanded="true" signature="26680:26956" placeholder="{...}" />
+                <marker date="1354035348473" expanded="true" signature="27016:27188" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,9 +137,9 @@
         <option value="$PROJECT_DIR$/www/config.xml" />
         <option value="$PROJECT_DIR$/www/app/config.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/app/controller/Emails.js" />
         <option value="$PROJECT_DIR$/www/app/controller/LoginRegister.js" />
         <option value="$PROJECT_DIR$/www/app/controller/Contacts.js" />
+        <option value="$PROJECT_DIR$/www/app/controller/Emails.js" />
       </list>
     </option>
   </component>
@@ -521,15 +526,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/controller/LoginRegister.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="715" column="42" selection-start="22374" selection-end="22374" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="770" column="42" selection-start="24183" selection-end="24183" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1354035348473" expanded="true" signature="26451:27287" placeholder="{&quot;method&quot;: 'POST'...}" />
+            <marker date="1354035348473" expanded="true" signature="26680:26956" placeholder="{...}" />
+            <marker date="1354035348473" expanded="true" signature="27016:27188" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/controller/Contacts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1162" column="51" selection-start="40315" selection-end="40315" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="1170" column="51" selection-start="40476" selection-end="40476" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1354035358394" expanded="true" signature="42683:43829" placeholder="{...}" />
+            <marker date="1354035358394" expanded="true" signature="42823:43741" placeholder="{&quot;out&quot;: true...}" />
+            <marker date="1354035358394" expanded="true" signature="42948:43715" placeholder="{...}" />
+            <marker date="1354035358394" expanded="true" signature="43206:43312" placeholder="{&quot;out&quot;: false...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -542,7 +556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/controller/Emails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2293" column="20" selection-start="80692" selection-end="80717" vertical-scroll-proportion="0.30409357">
+        <state line="2294" column="20" selection-start="80713" selection-end="80738" vertical-scroll-proportion="0.30409357">
           <folding />
         </state>
       </provider>
