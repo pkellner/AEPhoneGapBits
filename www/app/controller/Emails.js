@@ -310,7 +310,7 @@ Ext.define('AE.controller.Emails', {
         emailsContainerPanel.hide();
 
         Ext.Ajax.request({
-            url : '/EmailDetail/GetEmailByPersonBare',
+            url : AE.config.baseUrl  + '/EmailDetail/GetEmailByPersonBare',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -344,7 +344,7 @@ Ext.define('AE.controller.Emails', {
         Ext.fly('emailBody_' + emailDetailId).setHtml('<div class="loader"><div></div> <br /> Loading email message... </div>');
 
         Ext.Ajax.request({
-            url : '/EmailDetail/GetEmailById',
+            url : AE.config.baseUrl  + '/EmailDetail/GetEmailById',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -388,7 +388,7 @@ Ext.define('AE.controller.Emails', {
 
                 imgItems.push({
                     xtype: 'image',
-                    //src: '/'+ value.UrlPrefix +'/'+ value.Id +'.jpg?width=125&height=94&scale=both',
+                    //src: AE.config.baseUrl  + '/'+ value.UrlPrefix +'/'+ value.Id +'.jpg?width=125&height=94&scale=both',
                     src:  imageUrl,
                     cls: 'imagesThumb',
                     belongsToEmail: recordData.Id,
@@ -960,7 +960,7 @@ Ext.define('AE.controller.Emails', {
         var that = this;
 
         Ext.Ajax.request({
-            url : '/EmailDetail/GetEmailById',
+            url : AE.config.baseUrl  + '/EmailDetail/GetEmailById',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -2178,7 +2178,7 @@ Ext.define('AE.controller.Emails', {
             Ext.getStore('QuickMessages').remove(this.selectedQuickMsgRecord);
 
             Ext.Ajax.request({
-                url : '/EmailResponse/DeleteMessage',
+                url : AE.config.baseUrl  + '/EmailResponse/DeleteMessage',
                 method: 'POST',
                 params: {
                     Id: this.selectedQuickMsgRecord.get('Id')
@@ -2237,7 +2237,7 @@ Ext.define('AE.controller.Emails', {
                 this.selectedQuickMsgRecord.set('MessageTemplate', textValue);
                 this.selectedQuickMsgRecord.commit();
                 Ext.Ajax.request({
-                    url : '/EmailResponse/UpdateMessage',
+                    url : AE.config.baseUrl  + '/EmailResponse/UpdateMessage',
                     method: 'POST',
                     params: {
                         Id: this.selectedQuickMsgRecord.get('Id'),
@@ -2291,7 +2291,7 @@ Ext.define('AE.controller.Emails', {
             var user = Ext.getStore('Accounts').first();
 
             Ext.Ajax.request({
-                url : '/EmailResponse/AddMessage',
+                url : AE.config.baseUrl  + '/EmailResponse/AddMessage',
                 method: 'POST',
                 params: {
                     MessageTemplate: messageValue,

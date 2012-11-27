@@ -922,7 +922,7 @@ Ext.define('AE.controller.User', {
         }
     },
 
-    doLogout: function (btn) {
+    doLogout: function (btn, closeWindow) {
         var that = this;
 
         if (btn == 'yes') {
@@ -940,7 +940,13 @@ Ext.define('AE.controller.User', {
 
                     // Clear all records
                     // Reset app
-                    that.resetApp();
+                    if (closeWindow) {
+                        that.resetApp(true);
+                    } else {
+                        that.resetApp();
+                    }
+
+
 
                     Ext.Viewport.unmask();
 
@@ -1087,7 +1093,7 @@ Ext.define('AE.controller.User', {
                     that.accountPanel.setHidden(true);
 
                     // Reset app
-                    that.resetApp(true);
+                    that.doLogout('yes', true);
 
                     Ext.Viewport.unmask();
 
@@ -1160,7 +1166,7 @@ Ext.define('AE.controller.User', {
                     that.accountPanel.setHidden(true);
 
                     // Reset app
-                    that.resetApp(true);
+                    that.doLogout('yes', true);
 
                     Ext.Viewport.unmask();
 

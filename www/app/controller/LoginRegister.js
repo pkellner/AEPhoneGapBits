@@ -47,6 +47,7 @@ Ext.define('AE.controller.LoginRegister', {
 
             // Whitelist email addresses
             whitelistFirstLoginSaveBtn: '#whitelistFirstLoginSaveBtn',
+            whitelistSelectAllBtn: '#whitelistSelectAllBtn',
             whitelistFirstLoginContactsList: '#whitelistFirstLoginContactsList',
 
             // Login
@@ -148,13 +149,16 @@ Ext.define('AE.controller.LoginRegister', {
                 select: 'onSelectRegMailAccountTypesList'
             },
 
+            whitelistSelectAllBtn: {
+                tap: 'onTapWhitelistSelectAllBtn'
+            },
+
             whitelistFirstLoginSaveBtn: {
                 tap: 'onTapWhitelistFirstLoginPanelSaveBtn'
             },
 
             whitelistFirstLoginContactsList: {
-                select: 'onSelectWhitelistList',
-                deselect: 'onDeselectWhitelistList'
+                select: 'onSelectWhitelistList'
             },
 
             loginHereBtn: {
@@ -713,7 +717,7 @@ Ext.define('AE.controller.LoginRegister', {
             delete loginInfo.serverPassword;
 
             Ext.Ajax.request({
-                url : '/Account/GetFromAddressListFast',
+                url : AE.config.baseUrl  + '/Account/GetFromAddressListFast',
                 params: loginInfo,
                 method: 'POST',
                 success: function (response) {
@@ -733,6 +737,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                         if (emailData.length) {
                             Ext.getStore('WhitelistFirstLoginContacts').setData(emailData);
+                            whitelistFirstLoginContactsList.selectAll(true);
                         }
 
                     } else {
@@ -757,13 +762,80 @@ Ext.define('AE.controller.LoginRegister', {
         }, 1000);
     },
 
+    whitelistSelectAll: true,
+
+    onTapWhitelistSelectAllBtn: function (btn) {
+
+        if (!this.whitelistSelectAll) {
+            this.getWhitelistFirstLoginContactsList().selectAll(true);
+            this.whitelistSelectAll = true;
+        } else {
+            this.getWhitelistFirstLoginContactsList().deselectAll(true);
+            this.whitelistSelectAll = false;
+        }
+
+    },
+
     onTapWhitelistFirstLoginPanelSaveBtn: function (btn) {
+
+        var that = this,
+            whitelistFirstLoginContactsList,
+            whitelistSelections = this.getWhitelistFirstLoginContactsList().getSelection();
+
+        if (whitelistSelections.length) {
+
+            this.whitelistSelections = {
+                records: whitelistSelections,
+                count: 0
+            };
+
+            btn.disable();
+
+            whitelistFirstLoginContactsList = that.getWhitelistFirstLoginContactsList();
+
+            whitelistFirstLoginContactsList.setMasked({
+                xtype: 'loadmask',
+                message: 'Adding email addresses to whitelist...'
+            });
+
+            this.processSelectedEmailAddressForWhitelist();
+
+        } else {
+            this.switchToMainApp();
+        }
+
+    },
+
+    switchToMainApp: function () {
+
         this.onLoginBtn(this.regFormData);
+
+        whitelistFirstLoginContactsList = this.getWhitelistFirstLoginContactsList();
+
+        whitelistFirstLoginContactsList.setMasked(false);
+
 //        Add first login message after registration
         AE.app.getController('Emails').showMessageOnEmailCarouselContainer('<div id="hasMessageOnEmailContainerPanel">Thank you for joining AgelessEmail.<br />We are initializing your account.<br /><br />Your Inbox emails are being processed. <br />This may take about a minute.  Please wait...<br /><br />If you see the RED Refresh Button, click it to retrieve new email.</div>');
     },
 
-    onSelectWhitelistList: function(list, record) {
+    processSelectedEmailAddressForWhitelist: function () {
+
+        if (this.whitelistSelections.count < this.whitelistSelections.records.length ) {
+
+            Ext.callback(this.addEmailAddressToWhitelist, this, [this.whitelistSelections.records[this.whitelistSelections.count],
+                this.processSelectedEmailAddressForWhitelist, this]);
+
+            this.whitelistSelections.count += 1;
+
+        } else {
+
+            this.switchToMainApp();
+
+        }
+
+    },
+
+    addEmailAddressToWhitelist: function(record, callback, scope) {
         var emailAddress = record.get('EmailAddress');
 
         Ext.Ajax.request({
@@ -782,24 +854,24 @@ Ext.define('AE.controller.LoginRegister', {
                     AE.msgBox.alert('Error', 'Server error: ' + responseJson.Message, Ext.emptyFn);
                 }
 
+                if (callback) {
+                    Ext.callback(callback, scope);
+                }
+
             },
             failure: function (response) {
 
                 var responseJson = Ext.decode(response.responseText);
 
-                AE.msgBox.alert('Error', 'Error: ' + responseJson.message, function () {
+                AE.logger(responseJson.message + '. LoginRegister.js:addEmailAddressToWhitelist', 4);
 
-                });
+                if (callback) {
+                    Ext.callback(callback, scope);
+                }
 
             },
             scope: this
         });
-    },
-
-    // Prevents deselection of list
-    // Needs this because MULTI mode doesn't allow deselect
-    onDeselectWhitelistList: function (list, record) {
-        list.select(record, true, true);
     },
 
     showRegAeAccountPanel: function () {

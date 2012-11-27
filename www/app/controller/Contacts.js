@@ -1148,7 +1148,7 @@ Ext.define('AE.controller.Contacts', {
         store.each(function (record) {
             contactImages.push({
                 xtype: 'image',
-                src: '/'+ record.data.UrlPrefix +'/'+ record.data.ImageName +'.jpg?width=125',
+                src: AE.config.baseUrl  + '/'+ record.data.UrlPrefix +'/'+ record.data.ImageName +'.jpg?width=125',
                 recordImageId: record.data.Id,
                 recordImageName: record.data.ImageName,
                 recordUrlPrefix: record.data.UrlPrefix,
@@ -1219,22 +1219,29 @@ Ext.define('AE.controller.Contacts', {
 
                         contactImg = Ext.get('contactImg_' + selectedContact.data.Id);
 
-                        Ext.Anim.run(contactImg, 'fade', {
-                            out: true,
-                            scope: that,
-                            after: function () {
-                                contactImg.dom.src = '/'+ selectedContactImg.recordUrlPrefix +'/'+ selectedContactImg.recordImageName +'?width=84&height=84&scale=both';
-                                Ext.Anim.run(contactImg, 'fade', {
-                                    out: false,
-                                    scope: that
-                                });
-                                selectedContact.set('PersonImageUrlUrlPrefix', selectedContactImg.recordUrlPrefix);
-                                selectedContact.set('PersonImageUrlImageName', selectedContactImg.recordImageName);
-                                selectedContact.commit();
+                        contactImg.dom.src = '/'+ selectedContactImg.recordUrlPrefix +'/'+ selectedContactImg.recordImageName +'?width=84&height=84&scale=both';
+                        selectedContact.set('PersonImageUrlUrlPrefix', selectedContactImg.recordUrlPrefix);
+                        selectedContact.set('PersonImageUrlImageName', selectedContactImg.recordImageName);
+                        selectedContact.commit();
 
-                                that.renderContactToolbarToContactNode();
-                            }
-                        });
+                        that.renderContactToolbarToContactNode();
+
+//                        Ext.Anim.run(contactImg, 'fade', {
+//                            out: true,
+//                            scope: that,
+//                            after: function () {
+//                                contactImg.dom.src = '/'+ selectedContactImg.recordUrlPrefix +'/'+ selectedContactImg.recordImageName +'?width=84&height=84&scale=both';
+//                                Ext.Anim.run(contactImg, 'fade', {
+//                                    out: false,
+//                                    scope: that
+//                                });
+//                                selectedContact.set('PersonImageUrlUrlPrefix', selectedContactImg.recordUrlPrefix);
+//                                selectedContact.set('PersonImageUrlImageName', selectedContactImg.recordImageName);
+//                                selectedContact.commit();
+//
+//                                that.renderContactToolbarToContactNode();
+//                            }
+//                        });
 
                         that.hideAssignImageSelectorPanel();
 

@@ -9,6 +9,11 @@ Ext.define('AE.view.WhitelistFirstLoginPanel', {
                 id: 'whitelistFirstLoginToolbar',
                 xtype:'toolbar',
                 items: [{
+                    xtype: 'button',
+                    text: 'Check / Uncheck All',
+                    ui: 'blue',
+                    id: 'whitelistSelectAllBtn'
+                }, {
                     xtype: 'spacer'
                 }, {
                     xtype: 'button',

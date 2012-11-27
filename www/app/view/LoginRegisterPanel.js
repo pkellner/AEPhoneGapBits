@@ -47,7 +47,7 @@ Ext.define('AE.view.LoginRegisterPanel', {
                                 height: 70,
                                 id: 'startRegHeaderCard',
                                 items: [{
-                                    html: '<br />Create your account - Step 1 of 3'
+                                    html: '<br />Register your account - Step 1 of 3'
                                 }, {
                                     html: '<br />Your Mail Account type - Step 2 of 3'
                                 }, {
@@ -100,7 +100,7 @@ Ext.define('AE.view.LoginRegisterPanel', {
                             width: 170,
                             ui: 'orange-dark-bevel',
                             id: 'welcomeCreateAccountButton',
-                            text: 'Create an Account'
+                            text: 'Register an Account'
                         }, {
                             flex: 1
                         }]
