@@ -17,7 +17,7 @@ AE.config = {
     },
 
     // The base url for all ajax calls
-    baseUrl: '',
+    baseUrl: 'http://agelessemail.peterkellner.net',
 
     HideCreateAccountBtn: {
         admin: false,
