@@ -35529,6 +35529,8 @@ Ext.define('AE.controller.Contacts', {
             emailNotViewed = true;
         }
 
+        AE.logger('Store: Contacts; Event: BeforeLoad', 4);
+
         store.getProxy().setExtraParams({
             whitelistOnly: this.whitelistOnly,
             includeAddressBookEntriesWithNoEmailLast: this.includeAllSenders,
@@ -35566,6 +35568,8 @@ Ext.define('AE.controller.Contacts', {
             firstItem,
             emailsCarousel = AE.app.getController('Emails').emailsCarousel,
             contactsList = this.getContactsList();
+
+        AE.logger('Store: Contacts; Event: Load', 4);
 
         this.emailCountTracker = {};
 
@@ -36238,6 +36242,7 @@ Ext.define('AE.controller.Contacts', {
         store.getProxy().setExtraParams({
             Username: userAccount.data.AEUsername
         });
+
     },
 
     contactAssignImagesLoad: function (store) {
@@ -39028,13 +39033,20 @@ Ext.define('AE.controller.UtilClass', {
                     console.log(level + ': ' + msg);
             }
         }
+
+        if (!AE.config.HideAjaxLog) {
+            var logTextPanel = Ext.get('logTextPanel');
+            if (logTextPanel) {
+                logTextPanel.setHtml('> ' + msg + '<br />' + logTextPanel.getHtml());
+            }
+        }
     },
 
     ajaxErrorLog: function (url, responseText, status, statusText) {
-        this.logger('url: ' + url, 4);
-        this.logger('responseText: ' + responseText, 4);
-        this.logger('status: ' + status, 4);
-        this.logger('statusText: ' + statusText, 4);
+        this.logger('AJAX Error; url: ' + url, 4);
+        this.logger('AJAX Error; responseText: ' + responseText, 4);
+        this.logger('AJAX Error; status: ' + status, 4);
+        this.logger('AJAX Error; statusText: ' + statusText, 4);
     },
 
     clearFormChecks: function (formFields, resetField) {
@@ -39353,8 +39365,8 @@ Ext.define('AE.controller.UI', {
                 showAnimation:'popIn',
                 hideAnimation:'popOut',
                 centered:true,
-                width:475,
-                height:400,
+                width:600,
+                height:600,
                 layout:'fit',
                 items:[
                     {
@@ -39374,8 +39386,18 @@ Ext.define('AE.controller.UI', {
                             xtype: 'spacer'
                         }]
                     }, {
-                        style: 'padding: 12px;',
-                        html: aboutInfoText
+                        layout: 'vbox',
+                        items: [{
+                            style: 'padding: 12px;',
+                            html: aboutInfoText,
+                            height: 70
+                        }, {
+                            style: 'padding: 12px;',
+
+                            html: '<div style="font-size: 12px;">Logs<br />------------------------<div id="logTextPanel"></div><br /></div>',
+                            flex: 1,
+                            scrollable: true
+                        }]
                     }
                 ]
             });
@@ -40259,6 +40281,8 @@ Ext.define('AE.controller.User', {
                 uiController.viewportResize();
 
                 uiController.initComponentsByDeviceLoggedIn();
+
+                AE.app.getController('UI').onTapInfoWinBtn();
 
                 // Load Contacts
                 AE.app.getController('Contacts').emailFilterApplyBtnHandler();
@@ -56927,6 +56951,16 @@ Ext.define('AE.model.Account', {
         ]
     }
 });
+Ext.define('AE.model.Log', {
+    extend: 'Ext.data.Model',
+    config: {
+        fields: [
+            {name: 'Id',  type: 'int'},
+            {name: 'Type',  type: 'string'},
+            {name: 'Value',  type: 'string'}
+        ]
+    }
+});
 /**
  * @author Ed Spencer
  * @aside guide stores
@@ -59324,6 +59358,20 @@ Ext.define('AE.store.Accounts', {
                 exception: function (proxy, response, operation, eOpts) {
                     AE.app.getController('UtilClass').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
                 }
+            }
+        }
+    }
+});
+Ext.define('AE.store.Logs', {
+    extend  : 'Ext.data.Store',
+    requires: ['AE.model.Log'],
+    config: {
+        autoLoad: true,
+        model   : 'AE.model.Log',
+        proxy: {
+            type: 'memory',
+            reader: {
+                type: 'json'
             }
         }
     }

@@ -7,9 +7,9 @@ Ext.application({
 
     name: 'AE',
 
-    models: ['Contact', 'ContactAssignImage', 'Email', 'EmailPicture', 'EmailSetupConfig', 'QuickMessage', 'WhitelistFirstLoginContact', 'WhitelistManageContact', 'Account'],
+    models: ['Contact', 'ContactAssignImage', 'Email', 'EmailPicture', 'EmailSetupConfig', 'QuickMessage', 'WhitelistFirstLoginContact', 'WhitelistManageContact', 'Account', 'Log'],
     stores: ['Contacts', 'ContactsBackground', 'ContactAssignImages', 'Emails', 'EmailsBackground', 'EmailPictures', 'EmailSetupConfigs', 'QuickMessages',
-        'WhitelistFirstLoginContacts', 'WhitelistManageContacts', 'Accounts'],
+        'WhitelistFirstLoginContacts', 'WhitelistManageContacts', 'Accounts', 'Logs'],
     controllers: ['Main', 'Contacts', 'Emails', 'Settings', 'UtilClass', 'UI', 'User', 'LoginRegister'],
     views: ['Main', 'ContactsList', 'ContactAssignImagePanel', 'UpdateContactPanel',
         'EmailsCarouselBorder', 'EmailsCarouselBottomControls', 'EmailsCarouselInfinite', 'EmailPanel',
