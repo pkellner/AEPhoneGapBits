@@ -36242,7 +36242,6 @@ Ext.define('AE.controller.Contacts', {
         store.getProxy().setExtraParams({
             Username: userAccount.data.AEUsername
         });
-
     },
 
     contactAssignImagesLoad: function (store) {
@@ -36254,7 +36253,7 @@ Ext.define('AE.controller.Contacts', {
         store.each(function (record) {
             contactImages.push({
                 xtype: 'image',
-                src: AE.config.baseUrl  + '/'+ record.data.UrlPrefix +'/'+ record.data.ImageName +'.jpg?width=125',
+                src: '/'+ record.data.UrlPrefix +'/'+ record.data.ImageName +'.jpg?width=125',
                 recordImageId: record.data.Id,
                 recordImageName: record.data.ImageName,
                 recordUrlPrefix: record.data.UrlPrefix,
@@ -36914,7 +36913,7 @@ Ext.define('AE.controller.Emails', {
         emailsContainerPanel.hide();
 
         Ext.Ajax.request({
-            url : AE.config.baseUrl  + '/EmailDetail/GetEmailByPersonBare',
+            url : '/EmailDetail/GetEmailByPersonBare',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -36948,7 +36947,7 @@ Ext.define('AE.controller.Emails', {
         Ext.fly('emailBody_' + emailDetailId).setHtml('<div class="loader"><div></div> <br /> Loading email message... </div>');
 
         Ext.Ajax.request({
-            url : AE.config.baseUrl  + '/EmailDetail/GetEmailById',
+            url : '/EmailDetail/GetEmailById',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -36992,7 +36991,7 @@ Ext.define('AE.controller.Emails', {
 
                 imgItems.push({
                     xtype: 'image',
-                    //src: AE.config.baseUrl  + '/'+ value.UrlPrefix +'/'+ value.Id +'.jpg?width=125&height=94&scale=both',
+                    //src: '/'+ value.UrlPrefix +'/'+ value.Id +'.jpg?width=125&height=94&scale=both',
                     src:  imageUrl,
                     cls: 'imagesThumb',
                     belongsToEmail: recordData.Id,
@@ -37564,7 +37563,7 @@ Ext.define('AE.controller.Emails', {
         var that = this;
 
         Ext.Ajax.request({
-            url : AE.config.baseUrl  + '/EmailDetail/GetEmailById',
+            url : '/EmailDetail/GetEmailById',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -38782,7 +38781,7 @@ Ext.define('AE.controller.Emails', {
             Ext.getStore('QuickMessages').remove(this.selectedQuickMsgRecord);
 
             Ext.Ajax.request({
-                url : AE.config.baseUrl  + '/EmailResponse/DeleteMessage',
+                url : '/EmailResponse/DeleteMessage',
                 method: 'POST',
                 params: {
                     Id: this.selectedQuickMsgRecord.get('Id')
@@ -38841,7 +38840,7 @@ Ext.define('AE.controller.Emails', {
                 this.selectedQuickMsgRecord.set('MessageTemplate', textValue);
                 this.selectedQuickMsgRecord.commit();
                 Ext.Ajax.request({
-                    url : AE.config.baseUrl  + '/EmailResponse/UpdateMessage',
+                    url : '/EmailResponse/UpdateMessage',
                     method: 'POST',
                     params: {
                         Id: this.selectedQuickMsgRecord.get('Id'),
@@ -38895,7 +38894,7 @@ Ext.define('AE.controller.Emails', {
             var user = Ext.getStore('Accounts').first();
 
             Ext.Ajax.request({
-                url : AE.config.baseUrl  + '/EmailResponse/AddMessage',
+                url : '/EmailResponse/AddMessage',
                 method: 'POST',
                 params: {
                     MessageTemplate: messageValue,
@@ -40281,8 +40280,6 @@ Ext.define('AE.controller.User', {
                 uiController.viewportResize();
 
                 uiController.initComponentsByDeviceLoggedIn();
-
-                AE.app.getController('UI').onTapInfoWinBtn();
 
                 // Load Contacts
                 AE.app.getController('Contacts').emailFilterApplyBtnHandler();
@@ -41936,7 +41933,7 @@ Ext.define('AE.controller.LoginRegister', {
             delete loginInfo.serverPassword;
 
             Ext.Ajax.request({
-                url : AE.config.baseUrl  + '/Account/GetFromAddressListFast',
+                url : '/Account/GetFromAddressListFast',
                 params: loginInfo,
                 method: 'POST',
                 success: function (response) {
@@ -63867,7 +63864,7 @@ Ext.define('AE.view.ContactsList', {
             '{FirstName} {LastName}' +
             '</tpl>' +
             '</div>' +
-            '<div class="avatar"><img id="contactImg_{PersonId}" src="'+ AE.config.baseUrl +'/{PersonImageUrlUrlPrefix}/{PersonImageUrlImageName}?width=84&height=84&scale=both" alt="{FirstName} {LastName}" /></div>' +
+            '<div class="avatar"><img id="contactImg_{PersonId}" src="/{PersonImageUrlUrlPrefix}/{PersonImageUrlImageName}?width=84&height=84&scale=both" alt="{FirstName} {LastName}" /></div>' +
 
             '<div class="user">' +
 
