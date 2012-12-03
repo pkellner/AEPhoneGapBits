@@ -10,7 +10,7 @@ Ext.application({
     models: ['Contact', 'ContactAssignImage', 'Email', 'EmailPicture', 'EmailSetupConfig', 'QuickMessage', 'WhitelistFirstLoginContact', 'WhitelistManageContact', 'Account', 'Log'],
     stores: ['Contacts', 'ContactsBackground', 'ContactAssignImages', 'Emails', 'EmailsBackground', 'EmailPictures', 'EmailSetupConfigs', 'QuickMessages',
         'WhitelistFirstLoginContacts', 'WhitelistManageContacts', 'Accounts', 'Logs'],
-    controllers: ['Main', 'Contacts', 'Emails', 'Settings', 'UtilClass', 'UI', 'User', 'LoginRegister'],
+    controllers: ['Main', 'Contacts', 'Emails', 'Settings', 'UtilClass', 'UI', 'User', 'LoginRegister', 'Logging'],
     views: ['Main', 'ContactsList', 'ContactAssignImagePanel', 'UpdateContactPanel',
         'EmailsCarouselBorder', 'EmailsCarouselBottomControls', 'EmailsCarouselInfinite', 'EmailPanel',
         'ImageBrowserCarousel', 'ImageBrowserPanel', 'AccountPanel', 'AccountEmailSettingsPanel',
@@ -28,14 +28,17 @@ Ext.application({
 
     launch: function() {
 
+        // Console logger alias
+        AE.logger = Ext.bind(AE.app.getController('Logging').logger, AE.app.getController('Logging'));
+        AE.ajaxErrorLog = Ext.bind(AE.app.getController('Logging').ajaxErrorLog, AE.app.getController('Logging'));
+
         AE.app.getController('UtilClass').getUrlParams();
 
         AE.msgBox = Ext.create('AE.view.MessageBox');
 
         Ext.create('AE.view.Main');
 
-        // Console logger alias
-        AE.logger = AE.app.getController('UtilClass').logger;
+
 
 
     }

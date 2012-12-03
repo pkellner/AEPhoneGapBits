@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="23b90939-b515-4a82-9c12-d20605c4a6a9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AEPhoneGapBits.iws" afterPath="$PROJECT_DIR$/AEPhoneGapBits.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/config.js" afterPath="$PROJECT_DIR$/www/app/config.js" />
     </list>
     <ignored path="AEPhoneGapBits.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Emails.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Emails.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/controller/Emails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2289" column="132" selection-start="80603" selection-end="80603" vertical-scroll-proportion="0.32634032">
+            <state line="2284" column="39" selection-start="80432" selection-end="80432" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,10 +115,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="config.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="52" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+            <state line="17" column="0" selection-start="272" selection-end="272" vertical-scroll-proportion="0.019517796">
               <folding />
             </state>
           </provider>
@@ -146,11 +147,11 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/www/config.xml" />
-        <option value="$PROJECT_DIR$/www/app/config.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/app/controller/LoginRegister.js" />
         <option value="$PROJECT_DIR$/www/app/controller/Contacts.js" />
         <option value="$PROJECT_DIR$/www/app/controller/Emails.js" />
+        <option value="$PROJECT_DIR$/www/app/config.js" />
       </list>
     </option>
   </component>
@@ -189,6 +190,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,16 +314,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -453,6 +456,24 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="false">C:\Users\elwhizard\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="23b90939-b515-4a82-9c12-d20605c4a6a9" name="Default" comment="" />
@@ -463,7 +484,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -480,7 +501,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -549,6 +570,16 @@
         <state line="15" column="7" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/controller/Emails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2284" column="39" selection-start="80432" selection-end="80432" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/data/json/EmailSetupConfigs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="54" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/controller/Contacts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1170" column="51" selection-start="40476" selection-end="40476" vertical-scroll-proportion="0.0" />
@@ -559,26 +590,14 @@
         <state line="770" column="42" selection-start="24183" selection-end="24183" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="52" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="56" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/data/json/EmailSetupConfigs.js">
+    <entry file="file://$PROJECT_DIR$/www/app/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="54" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/controller/Emails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2289" column="132" selection-start="80603" selection-end="80603" vertical-scroll-proportion="0.32634032">
+        <state line="17" column="0" selection-start="272" selection-end="272" vertical-scroll-proportion="0.019517796">
           <folding />
         </state>
       </provider>

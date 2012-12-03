@@ -2,11 +2,16 @@ Ext.ns('AE.config');
 
 AE.config = {
 
-    build: '9.7.12.1',
+    build: '12.3.12.1',
+
+    // The application mode
+    // Value will be overriden if url var admin is used
+    AdminMode: false,
 
     logger: {
-        enable: true,
-        minLogLevel: 0,
+        // Value will be overriden if url var logging is used
+        enable: false,
+        minLogLevel: 2,
         level: {
             0: 'Trace',
             1: 'Debug',
@@ -16,8 +21,11 @@ AE.config = {
         }
     },
 
+    // Hides the application log on the About window
+    // HideLogsInAboutWindow: false,
+
     // The base url for all ajax calls
-    baseUrl: 'http://agelessemail.peterkellner.net',
+    baseUrl: '',
 
     HideCreateAccountBtn: {
         admin: false,
@@ -230,8 +238,8 @@ AE.config = {
     // For Polling email updates on Contacts list
     // Value in Milliseconds
     AddressBookReloadTime: {
-        admin: 10000,
-        normal: 10000
+        admin: 60000,
+        normal: 60000
     },
 
     // Shows or Hides the Delete Account button on the Settings window.
