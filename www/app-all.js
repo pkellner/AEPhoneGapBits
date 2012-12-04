@@ -35734,7 +35734,7 @@ Ext.define('AE.controller.Contacts', {
                 AE.logger('queryNewEmail: run task');
                 that.runQueryNewEmailTask();
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -36127,7 +36127,7 @@ Ext.define('AE.controller.Contacts', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -36200,7 +36200,7 @@ Ext.define('AE.controller.Contacts', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -36359,7 +36359,7 @@ Ext.define('AE.controller.Contacts', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -36487,7 +36487,7 @@ Ext.define('AE.controller.Contacts', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -36506,7 +36506,7 @@ Ext.define('AE.controller.Contacts', {
 
         this.whitelistManagePanel.show();
 
-        AE.app.getController('Logging').clearFormChecks(this.forms.whitelistManage, true);
+        AE.app.getController('UtilClass').clearFormChecks(this.forms.whitelistManage, true);
     },
 
     onTapWhitelistCloseBtn: function () {
@@ -36522,7 +36522,7 @@ Ext.define('AE.controller.Contacts', {
                 EmailAddressFieldToAdd: whitelistEmailAddressFieldToAdd.getValue()
             };
 
-        if (!AE.app.getController('Logging').formChecker(this.forms.whitelistManage, formValues)) {
+        if (!AE.app.getController('UtilClass').formChecker(this.forms.whitelistManage, formValues)) {
             return;
         }
 
@@ -36544,7 +36544,7 @@ Ext.define('AE.controller.Contacts', {
                     var responseJson = Ext.decode(response.responseText);
 
                     if (responseJson.Success) {
-                        AE.app.getController('Logging').clearFormChecks(this.forms.whitelistManage, true);
+                        AE.app.getController('UtilClass').clearFormChecks(this.forms.whitelistManage, true);
 
                         Ext.getStore('WhitelistManageContacts').load();
                     } else {
@@ -36935,7 +36935,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error from abort 0' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -36970,7 +36970,7 @@ Ext.define('AE.controller.Emails', {
             failure: function (response, options) {
                 AE.msgBox.alert('Error', 'Error: Server response error from abort : ' + emailDetailId );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -37050,7 +37050,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error from abort 1' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
 
             }
         });
@@ -37586,7 +37586,7 @@ Ext.define('AE.controller.Emails', {
             failure: function (response, options) {
                 AE.msgBox.alert('Error', 'Error: Server response error from abort : ' + emailDetailId );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -37651,7 +37651,7 @@ Ext.define('AE.controller.Emails', {
 
                 // Transaction aborted is when request is forcibly aborted when new email body is queried.
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText + ' Emails.js:remoteEmailBodyLoaderForInfiniteCarousel', response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText + ' Emails.js:remoteEmailBodyLoaderForInfiniteCarousel', response.status, response.statusText);
             }
         });
 
@@ -37884,7 +37884,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 0' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
 
@@ -38166,7 +38166,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error 1' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -38518,7 +38518,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 2' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -38648,7 +38648,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error 3' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -38764,7 +38764,7 @@ Ext.define('AE.controller.Emails', {
 
         this.selectedQuickMsgRecord = Ext.getStore('QuickMessages').getById(btn.config.recordId);
 
-        AE.app.getController('Logging').alertMsgBox({
+        AE.app.getController('UtilClass').alertMsgBox({
             title: 'Delete Quick Message',
             message: 'Do you want to Delete this Quick Message?',
             fn: this.doDeleteQuickMsg,
@@ -38795,7 +38795,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 4' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         } else {
@@ -38855,7 +38855,7 @@ Ext.define('AE.controller.Emails', {
 
                         AE.msgBox.alert('Error', 'Error: Server response error 5' );
 
-                        AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                        AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                     }
                 });
             }
@@ -38874,7 +38874,7 @@ Ext.define('AE.controller.Emails', {
             return;
         }
 
-        AE.app.getController('Logging').alertMsgBox({
+        AE.app.getController('UtilClass').alertMsgBox({
             title: 'Save Quick Message',
             message: 'Do you want to Save this Message as a Quick Message Template?',
             fn: this.doSaveQuickMsg,
@@ -38911,7 +38911,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 6' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
 
@@ -40453,7 +40453,7 @@ Ext.define('AE.controller.User', {
             userAccountValues,
             that = this;
 
-        if (!AE.app.getController('Logging').formChecker(this.forms.account, accountFormPanelValues)) {
+        if (!AE.app.getController('UtilClass').formChecker(this.forms.account, accountFormPanelValues)) {
             return;
         }
 
@@ -40650,7 +40650,7 @@ Ext.define('AE.controller.User', {
 
             emailServerSettingsFormPanel = this.getEmailServerSettingsFormPanel();
             emailServerSettingsFormPanelValues = emailServerSettingsFormPanel.getValues();
-            if (!AE.app.getController('Logging').formChecker(this.forms.emailSettings, emailServerSettingsFormPanelValues)) {
+            if (!AE.app.getController('UtilClass').formChecker(this.forms.emailSettings, emailServerSettingsFormPanelValues)) {
                 return;
             }
 
@@ -40673,7 +40673,7 @@ Ext.define('AE.controller.User', {
 
             emailServerSettingsFormPanelValues.fromEmailAddress = userAccount.get('FromEmailAddress');
 
-            if (!AE.app.getController('Logging').formChecker(this.forms.emailSettingsPreConfigd, emailServerSettingsFormPanelValues)) {
+            if (!AE.app.getController('UtilClass').formChecker(this.forms.emailSettingsPreConfigd, emailServerSettingsFormPanelValues)) {
                 return;
             }
 
@@ -40796,9 +40796,9 @@ Ext.define('AE.controller.User', {
                 this.getEmailSettingsPanelSaveBtn().setHidden(true);
 
                 if (this.selectedEmailSettingsAccountType == 'Other') {
-                    AE.app.getController('Logging').clearFormChecks(this.forms.emailSettings, true);
+                    AE.app.getController('UtilClass').clearFormChecks(this.forms.emailSettings, true);
                 } else {
-                    AE.app.getController('Logging').clearFormChecks(this.forms.emailSettingsPreConfigd, true);
+                    AE.app.getController('UtilClass').clearFormChecks(this.forms.emailSettingsPreConfigd, true);
                 }
 
                 break;
@@ -40904,7 +40904,7 @@ Ext.define('AE.controller.User', {
         if (this.getUserRights('HideLogoutConfirmWindow')) {
             this.doLogout('yes');
         } else {
-            AE.app.getController('Logging').alertMsgBox({
+            AE.app.getController('UtilClass').alertMsgBox({
                 title: 'Logout',
                 message: 'Are you sure you want to Logout?',
                 fn: this.doLogout,
@@ -40947,7 +40947,7 @@ Ext.define('AE.controller.User', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -41020,7 +41020,7 @@ Ext.define('AE.controller.User', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error');
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -41094,7 +41094,7 @@ Ext.define('AE.controller.User', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -41167,7 +41167,7 @@ Ext.define('AE.controller.User', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -41545,7 +41545,7 @@ Ext.define('AE.controller.LoginRegister', {
 
         var regFormPanel = this.getRegAeFormPanel();
 
-        if (!AE.app.getController('Logging').formChecker(this.forms.registerAeAccount, regFormPanel.getValues())) {
+        if (!AE.app.getController('UtilClass').formChecker(this.forms.registerAeAccount, regFormPanel.getValues())) {
             return;
         } else {
             this.checkForExistingUsername();
@@ -41602,7 +41602,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -41742,7 +41742,7 @@ Ext.define('AE.controller.LoginRegister', {
 
         var regFormPanel = this.getRegPreConfigdFormPanel(),
             regFormValues = regFormPanel.getValues();
-        if (AE.app.getController('Logging').formChecker(this.forms.registerPreConfigd, regFormValues)) {
+        if (AE.app.getController('UtilClass').formChecker(this.forms.registerPreConfigd, regFormValues)) {
             return true;
         }
 
@@ -41774,7 +41774,7 @@ Ext.define('AE.controller.LoginRegister', {
 
         var regFormPanel = this.getRegManualConfigFormPanel();
 
-        if (AE.app.getController('Logging').formChecker(this.forms.registerManual, regFormPanel.getValues())) {
+        if (AE.app.getController('UtilClass').formChecker(this.forms.registerManual, regFormPanel.getValues())) {
             return true;
         }
 
@@ -41858,7 +41858,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -41903,7 +41903,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -42109,7 +42109,7 @@ Ext.define('AE.controller.LoginRegister', {
                 password: regFormData.aePassword
             });
         } else {
-            if (!AE.app.getController('Logging').formChecker(this.forms.login, loginFormPanel.getValues())) {
+            if (!AE.app.getController('UtilClass').formChecker(this.forms.login, loginFormPanel.getValues())) {
                 return;
             }
         }
@@ -42239,7 +42239,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('Logging').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -59212,7 +59212,7 @@ Ext.define('AE.store.Contacts', {
             listeners:{
                 exception:function (proxy, response, operation, eOpts) {
                     AE.logger('Exception on Contacts store. store/Contacts.js', 4);
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
 
                 }
             }
@@ -59242,7 +59242,7 @@ Ext.define('AE.store.ContactsBackground', {
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
 
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
 
                 }
             }
@@ -59264,7 +59264,7 @@ Ext.define('AE.store.ContactAssignImages', {
             },
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
                 }
             }
         }
@@ -59311,7 +59311,7 @@ Ext.define('AE.store.EmailsBackground', {
             },
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
                 }
             }
         }
@@ -59384,7 +59384,7 @@ Ext.define('AE.store.WhitelistFirstLoginContacts', {
             listeners:{
                 exception:function (proxy, response, operation, eOpts) {
                     AE.logger('Exception on Contacts store. store/Contacts.js', 4);
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
 
                 }
             }
@@ -59418,7 +59418,7 @@ Ext.define('AE.store.WhitelistManageContacts', {
             listeners:{
                 exception:function (proxy, response, operation, eOpts) {
                     AE.logger('Exception on Contacts store. store/Contacts.js', 4);
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
 
                 }
             }
@@ -59443,7 +59443,7 @@ Ext.define('AE.store.Accounts', {
             },
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
-                    AE.app.getController('Logging').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
                 }
             }
         }
