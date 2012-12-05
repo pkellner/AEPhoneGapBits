@@ -56,6 +56,8 @@ Ext.define('AE.controller.UI', {
 
             loggedInUserInfoToolbar: '#loggedInUserInfoToolbar',
 
+            aboutInfoText: '#aboutInfoText',
+
             // Affordances
             leftCarouselArrow:'#leftCarouselArrow',
             rightCarouselArrow:'#rightCarouselArrow'
@@ -187,14 +189,13 @@ Ext.define('AE.controller.UI', {
             aboutInfoText;
 
         if (!this.aboutPanel) {
-            aboutInfoText = AE.app.getController('User').getUserInfoForAbout();
             this.aboutPanel = Ext.create('Ext.Panel', {
                 modal:true,
                 showAnimation:'popIn',
                 hideAnimation:'popOut',
                 centered:true,
-                width:475,
-                height:400,
+                width:600,
+                height:600,
                 layout:'fit',
                 items:[
                     {
@@ -212,13 +213,39 @@ Ext.define('AE.controller.UI', {
                             }
                         }, {
                             xtype: 'spacer'
+                        }, {
+                            xtype: 'button',
+                            text: 'Clear',
+                            hidden: true,
+                            id: 'clearLogsBtn',
+                            handler: function () {
+                                Ext.get('logTextPanel').setHtml('');
+                            }
                         }]
                     }, {
-                        style: 'padding: 12px;',
-                        html: aboutInfoText
+                        layout: 'vbox',
+                        items: [{
+                            style: 'padding: 12px;',
+                            id: 'aboutInfoText',
+                            html: '',
+                            height: 70
+                        }, {
+                            style: 'padding: 12px;',
+                            id: 'loggingPanel',
+                            hidden: true,
+                            html: '<div style="font-size: 12px;">Logs<br />------------------------<div id="logTextPanel"></div><br /></div>',
+                            flex: 1,
+                            scrollable: true
+                        }]
                     }
                 ]
             });
+        }
+
+        aboutInfoText = AE.app.getController('User').getUserInfoForAbout();
+
+        if (this.getAboutInfoText().getHtml() == '') {
+            this.getAboutInfoText().setHtml(aboutInfoText);
         }
 
         Ext.Viewport.add([this.aboutPanel]);
@@ -799,6 +826,11 @@ Ext.define('AE.controller.UI', {
         }
 
         this.setHiddenBottomControls(true);
+
+        // Reset the user info on about window
+        if (this.getAboutInfoText()) {
+            this.getAboutInfoText().setHtml('');
+        }
 
         // Hide Main panel
         this.getMainContainerPanel().setActiveItem(0);

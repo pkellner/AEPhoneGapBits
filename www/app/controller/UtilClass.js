@@ -5,7 +5,6 @@ Ext.define('AE.controller.UtilClass', {
 
         // Gets URL params
         // Used for determining user rights
-
         AE.logger(AE.urlVars.admin ? 'Admin' : 'User');
 
 //        this.overrideConsole();
@@ -52,32 +51,6 @@ Ext.define('AE.controller.UtilClass', {
 
     },
 
-    logger: function (msg, level, logType, data) {
-
-        if (AE.config.logger.enable && level >= AE.config.logger.minLogLevel) {
-
-            if (level) {
-                level = AE.config.logger.level[level];
-            } else {
-                level = AE.config.logger.level[0];
-            }
-
-            switch (logType) {
-                case 'info':
-                    console.info(level + ': ' + msg, data)
-                    break;
-                default:
-                    console.log(level + ': ' + msg);
-            }
-        }
-    },
-
-    ajaxErrorLog: function (url, responseText, status, statusText) {
-        this.logger('url: ' + url, 4);
-        this.logger('responseText: ' + responseText, 4);
-        this.logger('status: ' + status, 4);
-        this.logger('statusText: ' + statusText, 4);
-    },
 
     clearFormChecks: function (formFields, resetField) {
         Ext.each(formFields.fields, function (field) {

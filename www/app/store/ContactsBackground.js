@@ -21,7 +21,7 @@ Ext.define('AE.store.ContactsBackground', {
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
 
                 }
             }

@@ -891,6 +891,9 @@ $regBoxShadow: 0 12px 10px -10px #000;
   #whitelistFirstLoginToolbar {
     background: none;
     border: none;
+    .whitelistSelectAllBtn {
+      font-size: 13px;
+    }
     .regPreConfigdAddBtn {
       margin-top: 0px;
     }
@@ -1427,6 +1430,23 @@ $emailFont: Georgia;
 }
 
 /*End - Form*/
+
+/* Logging */
+
+#logTextPanel {
+  .logItem {
+    border-bottom: 1px solid #ccc;
+    padding: 2px 4px;
+    margin: 2px 0;
+  }
+
+  .ERROR {
+    border: 1px solid red;
+    background-color: #fdf3cb;
+  }
+}
+
+/* End - Logging */
 
 @media screen and (orientation:portrait) {
 

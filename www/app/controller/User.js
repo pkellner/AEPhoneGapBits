@@ -289,6 +289,10 @@ Ext.define('AE.controller.User', {
 
                 uiController.initComponentsByDeviceLoggedIn();
 
+                if (AE.config.logger.enable) {
+                    AE.app.getController('UI').onTapInfoWinBtn();
+                }
+
                 // Load Contacts
                 AE.app.getController('Contacts').emailFilterApplyBtnHandler();
 
@@ -346,13 +350,28 @@ Ext.define('AE.controller.User', {
     // Gets user rights based on the user type and option
     getUserRights: function (option) {
 
-        var user;
+        var user,
+            appMode = 'normal';
 
         if (!AE.urlVars) {
             return;
         }
 
-        user = (AE.urlVars.admin ? 'admin' : 'normal');
+        // Convert to boolean
+        if (typeof AE.urlVars.admin === 'string') {
+            AE.urlVars.admin = (AE.urlVars.admin === 'true' ? true: false);
+        }
+
+        // For admin
+        if (AE.config.AdminMode) {
+            appMode  = 'admin';
+        }
+        // Url variable takes top priority
+        if (AE.urlVars.admin && appMode == 'normal') {
+            appMode  = 'admin';
+        }
+
+        user = appMode;
 
 //        AE.logger(option)
 //        AE.logger(user)
@@ -956,7 +975,7 @@ Ext.define('AE.controller.User', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -1029,7 +1048,7 @@ Ext.define('AE.controller.User', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error');
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -1103,7 +1122,7 @@ Ext.define('AE.controller.User', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -1176,7 +1195,7 @@ Ext.define('AE.controller.User', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }

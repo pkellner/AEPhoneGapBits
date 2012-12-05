@@ -387,7 +387,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -643,7 +643,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -688,7 +688,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -717,7 +717,7 @@ Ext.define('AE.controller.LoginRegister', {
             delete loginInfo.serverPassword;
 
             Ext.Ajax.request({
-                url : AE.config.baseUrl  + '/Account/GetFromAddressListFast',
+                url : '/Account/GetFromAddressListFast',
                 params: loginInfo,
                 method: 'POST',
                 success: function (response) {
@@ -1024,7 +1024,7 @@ Ext.define('AE.controller.LoginRegister', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 

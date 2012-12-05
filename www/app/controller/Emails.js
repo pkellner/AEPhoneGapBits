@@ -310,7 +310,7 @@ Ext.define('AE.controller.Emails', {
         emailsContainerPanel.hide();
 
         Ext.Ajax.request({
-            url : AE.config.baseUrl  + '/EmailDetail/GetEmailByPersonBare',
+            url : '/EmailDetail/GetEmailByPersonBare',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -332,7 +332,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error from abort 0' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -344,7 +344,7 @@ Ext.define('AE.controller.Emails', {
         Ext.fly('emailBody_' + emailDetailId).setHtml('<div class="loader"><div></div> <br /> Loading email message... </div>');
 
         Ext.Ajax.request({
-            url : AE.config.baseUrl  + '/EmailDetail/GetEmailById',
+            url : '/EmailDetail/GetEmailById',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -367,7 +367,7 @@ Ext.define('AE.controller.Emails', {
             failure: function (response, options) {
                 AE.msgBox.alert('Error', 'Error: Server response error from abort : ' + emailDetailId );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -388,7 +388,7 @@ Ext.define('AE.controller.Emails', {
 
                 imgItems.push({
                     xtype: 'image',
-                    //src: AE.config.baseUrl  + '/'+ value.UrlPrefix +'/'+ value.Id +'.jpg?width=125&height=94&scale=both',
+                    //src: '/'+ value.UrlPrefix +'/'+ value.Id +'.jpg?width=125&height=94&scale=both',
                     src:  imageUrl,
                     cls: 'imagesThumb',
                     belongsToEmail: recordData.Id,
@@ -447,7 +447,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error from abort 1' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
 
             }
         });
@@ -525,9 +525,8 @@ Ext.define('AE.controller.Emails', {
                 this.emailStoreCacheManager();
 
                 emailsStore.add(emailBgRecord);
-                AE.logger('Add record');
             } else {
-                AE.logger('Record exists');
+
             }
 
             this.localStorageCounterUpdater();
@@ -960,7 +959,7 @@ Ext.define('AE.controller.Emails', {
         var that = this;
 
         Ext.Ajax.request({
-            url : AE.config.baseUrl  + '/EmailDetail/GetEmailById',
+            url : '/EmailDetail/GetEmailById',
             method: 'POST',
             timeout: AE.config.GetEmailByPersonTimeoutLimit,
             params: {
@@ -983,7 +982,7 @@ Ext.define('AE.controller.Emails', {
             failure: function (response, options) {
                 AE.msgBox.alert('Error', 'Error: Server response error from abort : ' + emailDetailId );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -1048,7 +1047,7 @@ Ext.define('AE.controller.Emails', {
 
                 // Transaction aborted is when request is forcibly aborted when new email body is queried.
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText + ' Emails.js:remoteEmailBodyLoaderForInfiniteCarousel', response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText + ' Emails.js:remoteEmailBodyLoaderForInfiniteCarousel', response.status, response.statusText);
             }
         });
 
@@ -1281,7 +1280,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 0' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
 
@@ -1563,7 +1562,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error 1' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -1915,7 +1914,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 2' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -2045,7 +2044,7 @@ Ext.define('AE.controller.Emails', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error 3' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -2178,7 +2177,7 @@ Ext.define('AE.controller.Emails', {
             Ext.getStore('QuickMessages').remove(this.selectedQuickMsgRecord);
 
             Ext.Ajax.request({
-                url : AE.config.baseUrl  + '/EmailResponse/DeleteMessage',
+                url : '/EmailResponse/DeleteMessage',
                 method: 'POST',
                 params: {
                     Id: this.selectedQuickMsgRecord.get('Id')
@@ -2192,7 +2191,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 4' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         } else {
@@ -2237,7 +2236,7 @@ Ext.define('AE.controller.Emails', {
                 this.selectedQuickMsgRecord.set('MessageTemplate', textValue);
                 this.selectedQuickMsgRecord.commit();
                 Ext.Ajax.request({
-                    url : AE.config.baseUrl  + '/EmailResponse/UpdateMessage',
+                    url : '/EmailResponse/UpdateMessage',
                     method: 'POST',
                     params: {
                         Id: this.selectedQuickMsgRecord.get('Id'),
@@ -2252,7 +2251,7 @@ Ext.define('AE.controller.Emails', {
 
                         AE.msgBox.alert('Error', 'Error: Server response error 5' );
 
-                        AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                        AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                     }
                 });
             }
@@ -2291,7 +2290,7 @@ Ext.define('AE.controller.Emails', {
             var user = Ext.getStore('Accounts').first();
 
             Ext.Ajax.request({
-                url : AE.config.baseUrl  + '/EmailResponse/AddMessage',
+                url : '/EmailResponse/AddMessage',
                 method: 'POST',
                 params: {
                     MessageTemplate: messageValue,
@@ -2308,7 +2307,7 @@ Ext.define('AE.controller.Emails', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error 6' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
 

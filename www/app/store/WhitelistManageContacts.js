@@ -25,7 +25,7 @@ Ext.define('AE.store.WhitelistManageContacts', {
             listeners:{
                 exception:function (proxy, response, operation, eOpts) {
                     AE.logger('Exception on Contacts store. store/Contacts.js', 4);
-                    AE.app.getController('UtilClass').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
 
                 }
             }

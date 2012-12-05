@@ -16,7 +16,8 @@ Ext.define('AE.store.Accounts', {
             },
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
-                    AE.app.getController('UtilClass').ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.logger('Exception on Account store. store/Accounts.js', 4);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText, proxy.getExtraParams());
                 }
             }
         }

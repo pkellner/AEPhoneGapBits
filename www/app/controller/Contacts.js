@@ -436,6 +436,8 @@ Ext.define('AE.controller.Contacts', {
             limit: 250
         });
 
+        AE.logger('Store: Contacts; Event: BeforeLoad' + '; <br />url: ' + store.getProxy()._url + '; <br />params: ' + JSON.stringify(store.getProxy()._extraParams, null, '<br />'));
+
         // Delayed Contacts List mask
         if (!this.contactsMaskTask) {
             this.contactsMaskTask = Ext.create('Ext.util.DelayedTask', function () {
@@ -465,6 +467,8 @@ Ext.define('AE.controller.Contacts', {
             firstItem,
             emailsCarousel = AE.app.getController('Emails').emailsCarousel,
             contactsList = this.getContactsList();
+
+        AE.logger('Store: Contacts; Event: Load');
 
         this.emailCountTracker = {};
 
@@ -497,7 +501,7 @@ Ext.define('AE.controller.Contacts', {
                 }
                 // If selected contact no longer exists
                 // Happens when whitelist is updated
-                if (store.findExact('PersonId', this.selectedContact.get('PersonId')) == -1) {
+                if (this.selectedContact && store.findExact('PersonId', this.selectedContact.get('PersonId')) == -1) {
                     this.selectedContact = store.getAt(0);
                 }
 
@@ -629,7 +633,7 @@ Ext.define('AE.controller.Contacts', {
                 AE.logger('queryNewEmail: run task');
                 that.runQueryNewEmailTask();
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -893,7 +897,7 @@ Ext.define('AE.controller.Contacts', {
         var contact = this.selectedContact,
             selectedContactEl;
 
-        if (!this.showContactButtons) {
+        if (!contact || !this.showContactButtons) {
             return;
         }
 
@@ -1022,7 +1026,7 @@ Ext.define('AE.controller.Contacts', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
     },
@@ -1095,7 +1099,7 @@ Ext.define('AE.controller.Contacts', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 
@@ -1148,7 +1152,7 @@ Ext.define('AE.controller.Contacts', {
         store.each(function (record) {
             contactImages.push({
                 xtype: 'image',
-                src: AE.config.baseUrl  + '/'+ record.data.UrlPrefix +'/'+ record.data.ImageName +'.jpg?width=125',
+                src: '/'+ record.data.UrlPrefix +'/'+ record.data.ImageName +'.jpg?width=125',
                 recordImageId: record.data.Id,
                 recordImageName: record.data.ImageName,
                 recordUrlPrefix: record.data.UrlPrefix,
@@ -1254,7 +1258,7 @@ Ext.define('AE.controller.Contacts', {
 
                     AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                    AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
                 }
             });
         }
@@ -1382,7 +1386,7 @@ Ext.define('AE.controller.Contacts', {
 
                 AE.msgBox.alert('Error', 'Error: Server response error' );
 
-                AE.app.getController('UtilClass').ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
+                AE.ajaxErrorLog(options.url, response.responseText, response.status, response.statusText);
             }
         });
 

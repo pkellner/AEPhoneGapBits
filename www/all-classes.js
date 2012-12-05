@@ -35602,7 +35602,7 @@ Ext.define('AE.controller.Contacts', {
                 }
                 // If selected contact no longer exists
                 // Happens when whitelist is updated
-                if (store.findExact('PersonId', this.selectedContact.get('PersonId')) == -1) {
+                if (this.selectedContact && store.findExact('PersonId', this.selectedContact.get('PersonId')) == -1) {
                     this.selectedContact = store.getAt(0);
                 }
 
@@ -35998,7 +35998,7 @@ Ext.define('AE.controller.Contacts', {
         var contact = this.selectedContact,
             selectedContactEl;
 
-        if (!this.showContactButtons) {
+        if (!contact || !this.showContactButtons) {
             return;
         }
 
@@ -39349,6 +39349,14 @@ Ext.define('AE.controller.UI', {
                             }
                         }, {
                             xtype: 'spacer'
+                        }, {
+                            xtype: 'button',
+                            text: 'Clear',
+                            hidden: true,
+                            id: 'clearLogsBtn',
+                            handler: function () {
+                                Ext.get('logTextPanel').setHtml('');
+                            }
                         }]
                     }, {
                         layout: 'vbox',
@@ -42281,6 +42289,7 @@ Ext.define('AE.controller.Logging', {
         // Show the logging panel if logging is enabled
         if (allowLogging && loggingPanel && loggingPanel.isHidden()) {
             loggingPanel.show();
+            Ext.getCmp('clearLogsBtn').setHidden(false);
         }
 
         return allowLogging;
@@ -42322,7 +42331,7 @@ Ext.define('AE.controller.Logging', {
             dtFormat = Ext.Date.format(dt, "H:i:s");
 
             if (logTextPanel) {
-                logTextPanel.setHtml('<div class="logItem"> > ' + dtFormat +': ' + logLevelText +': ' + msg + '</div>' + logTextPanel.getHtml());
+                logTextPanel.setHtml('<div class="logItem '+logLevelText+'"> > ' + dtFormat +': ' + logLevelText +': ' + msg + '</div>' + logTextPanel.getHtml());
             }
 
         }
