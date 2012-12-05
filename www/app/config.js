@@ -10,14 +10,14 @@ AE.config = {
 
     logger: {
         // Value will be overriden if url var logging is used
-        enable: false,
-        minLogLevel: 2,
+        enable: true,
+        minLogLevel: 4,
         level: {
             0: 'Trace',
             1: 'Debug',
             2: 'Info',
             3: 'Warn',
-            4: 'Error'
+            4: 'ERROR'
         }
     },
 

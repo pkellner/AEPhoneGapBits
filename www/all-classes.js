@@ -35529,8 +35529,6 @@ Ext.define('AE.controller.Contacts', {
             emailNotViewed = true;
         }
 
-        AE.logger('Store: Contacts; Event: BeforeLoad');
-
         store.getProxy().setExtraParams({
             whitelistOnly: this.whitelistOnly,
             includeAddressBookEntriesWithNoEmailLast: this.includeAllSenders,
@@ -35538,6 +35536,8 @@ Ext.define('AE.controller.Contacts', {
             emailNotViewed: emailNotViewed,
             limit: 250
         });
+
+        AE.logger('Store: Contacts; Event: BeforeLoad' + '; <br />url: ' + store.getProxy()._url + '; <br />params: ' + JSON.stringify(store.getProxy()._extraParams, null, '<br />'));
 
         // Delayed Contacts List mask
         if (!this.contactsMaskTask) {
@@ -37128,9 +37128,8 @@ Ext.define('AE.controller.Emails', {
                 this.emailStoreCacheManager();
 
                 emailsStore.add(emailBgRecord);
-                AE.logger('Add record');
             } else {
-                AE.logger('Record exists');
+
             }
 
             this.localStorageCounterUpdater();
@@ -42288,6 +42287,7 @@ Ext.define('AE.controller.Logging', {
     },
 
     logger: function (msg, level, logType, data) {
+
         var dt, dtFormat, logLevelText, logTextPanel;
 
         if (!this.allowLogging()) {
@@ -42322,18 +42322,21 @@ Ext.define('AE.controller.Logging', {
             dtFormat = Ext.Date.format(dt, "H:i:s");
 
             if (logTextPanel) {
-                logTextPanel.setHtml('> ' + dtFormat +': ' + logLevelText +': ' + msg + '<br />' + logTextPanel.getHtml());
+                logTextPanel.setHtml('<div class="logItem"> > ' + dtFormat +': ' + logLevelText +': ' + msg + '</div>' + logTextPanel.getHtml());
             }
 
         }
 
     },
 
-    ajaxErrorLog: function (url, responseText, status, statusText) {
-        this.logger('AJAX Error; url: ' + url, 4);
-        this.logger('AJAX Error; responseText: ' + responseText, 4);
-        this.logger('AJAX Error; status: ' + status, 4);
-        this.logger('AJAX Error; statusText: ' + statusText, 4);
+    ajaxErrorLog: function (url, responseText, status, statusText, params) {
+//        this.logger('AJAX Error; responseText: ' + responseText, 4);
+        this.logger('<br />Ajax url: ' + url +
+            '<br />Ajax status: ' + status +
+            '<br />Ajax statusText: ' + statusText +
+            '<br />params: ' + (params ? JSON.stringify(params, null, '<br />'): ''),
+            4);
+
     }
 
 });
@@ -59212,7 +59215,7 @@ Ext.define('AE.store.Contacts', {
             listeners:{
                 exception:function (proxy, response, operation, eOpts) {
                     AE.logger('Exception on Contacts store. store/Contacts.js', 4);
-                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText, proxy.getExtraParams());
 
                 }
             }
@@ -59443,7 +59446,8 @@ Ext.define('AE.store.Accounts', {
             },
             listeners: {
                 exception: function (proxy, response, operation, eOpts) {
-                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText);
+                    AE.logger('Exception on Account store. store/Accounts.js', 4);
+                    AE.ajaxErrorLog(proxy.getUrl(), response.responseText, response.status, response.statusText, proxy.getExtraParams());
                 }
             }
         }
